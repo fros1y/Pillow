@@ -1066,7 +1066,7 @@ class TiffImageFile(ImageFile.ImageFile):
         return self.__frame
 
     def load(self):
-        if self.use_load_libtiff:
+        if getattr(self, 'use_load_libtiff', False):
             return self._load_libtiff()
         return super().load()
 
